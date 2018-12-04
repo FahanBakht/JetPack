@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment"
+              android:name="com.example.muhammadfarhan.practicenavigationcomponent.HomeFragment"
+              android:label="fragment_home" tools:layout="@layout/fragment_home">
+        <action android:id="@+id/toKitchen" app:destination="@id/kitchenFragment"/>
+        <action android:id="@+id/toBedroom" app:destination="@id/bedroomFragment2"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/kitchenFragment"
+            android:name="com.example.muhammadfarhan.practicenavigationcomponent.KitchenFragment"
+            android:label="fragment_kitchen"
+            tools:layout="@layout/fragment_kitchen">
+
+        <action
+                android:id="@+id/kitchenToDoor"
+                app:destination="@id/homeDoorFragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/bedroomFragment2"
+              android:name="com.example.muhammadfarhan.practicenavigationcomponent.BedroomFragment"
+              android:label="fragment_bedroom" tools:layout="@layout/fragment_bedroom">
+        <action android:id="@+id/bedRoomToDoor" app:destination="@id/homeDoorFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/homeDoorFragment"
+              android:name="com.example.muhammadfarhan.practicenavigationcomponent.HomeDoorFragment"
+              android:label="fragment_home_door" tools:layout="@layout/fragment_home_door">
+        <argument android:name="fromWhere" app:argType="string" android:defaultValue=" "/>
+        <action android:id="@+id/toHome" app:destination="@id/homeFragment"
+                app:popUpTo="@+id/homeFragment"/>
+        <argument android:name="safeArgs" app:argType="string" android:defaultValue=" "/>
+    </fragment>
+
+</navigation>

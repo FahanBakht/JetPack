@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_nav_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="com.example.muhammadfarhan.jetpackdatabinding.ui.main.MainFragment"
+              android:label="main_fragment"
+              tools:layout="@layout/main_fragment">
+
+        <action android:id="@+id/action_mainFragment_to_demoNavigation"
+                app:destination="@id/demoNavigation"/>
+    </fragment>
+
+    <fragment android:id="@+id/demoNavigation"
+              android:name="com.example.muhammadfarhan.jetpackdatabinding.ui.main.DemoNavigation"
+              android:label="fragment_demo_navigation"
+              tools:layout="@layout/fragment_demo_navigation">
+
+        <action android:id="@+id/action_demoNavigation_to_demoSafeArgs"
+                app:destination="@id/demoSafeArgs"/>
+    </fragment>
+
+    <fragment android:id="@+id/demoSafeArgs"
+              android:name="com.example.muhammadfarhan.jetpackdatabinding.ui.main.DemoSafeArgs"
+              android:label="fragment_demo_safe_args"
+              tools:layout="@layout/fragment_demo_safe_args">
+
+        <argument android:name="valueFrom" app:argType="string"
+                  android:defaultValue="No Value"/>
+    </fragment>
+</navigation>
